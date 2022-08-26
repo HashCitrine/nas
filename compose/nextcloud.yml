@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD={PW}
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_DB=nextcloud
+
+  app:
+    image: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - nas:/var/www/html
+      - media:/ex
+      
+    environment:
+      - POSTGRES_PASSWORD={PW}
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_HOST=db

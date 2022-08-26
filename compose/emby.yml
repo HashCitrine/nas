@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  emby1:
+    image: lscr.io/linuxserver/emby
+    container_name: emby
+    environment:
+      - PUID=33
+      - PGID=33
+      - TZ=Asia/Seoul
+    volumes:
+      - /docker/emby1/library:/configd
+      - /docker/emby1/tvshows:/data/tvshows
+      - media:/data/movies
+    ports:
+      - 8096:8096
+    devices:
+      - /dev/dri:/dev/dri #optional
+    restart: unless-stopped
