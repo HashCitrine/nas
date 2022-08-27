@@ -329,7 +329,20 @@ Docker version 20.10.16, build aa7e414
 
 참고 : [우분투 서버 '도커' Docker '포테이너' Portainer 설치 방법 - EazyManual](https://eazymanual.com/docker-and-portainer/#ftoc-heading-8)
 
-4) 컨테이너 설치는 아래 서비스들 설치 항목에서 서술 (compos 이용)
+**※ compose 이용하여 설치 (Portainer - stack)**
+
+1) Portainer - Stack 메뉴로 이동하여 ‘Add stack’ 클릭
+![duckdns](https://github.com/HashCitrine/nas/blob/master/image/portainer_stack_1.png?raw=true)
+
+2) 설치할 서비스의  compose 작성 (Web editor)
+![duckdns](https://github.com/HashCitrine/nas/blob/master/image/portainer_stack_2.png?raw=true)
+
+3) 페이지 하단의 ‘Deploy the stack’ 버튼을 클릭하여 서비스 설치/배포
+![duckdns](https://github.com/HashCitrine/nas/blob/master/image/portainer_stack_3.png?raw=true)
+
+4) 서비스 상태 확인
+![duckdns](https://github.com/HashCitrine/nas/blob/master/image/portainer_stack_4.png?raw=true)
+
 
 참고 : [Ubuntu 20.04 LTS ) Docker 설치하기 (tistory.com)](https://shanepark.tistory.com/237)
 [ubuntu docker 설치시 Package 'docker-ce' has no installation candidate 해결 (tistory.com)](https://boying-blog.tistory.com/82)
@@ -358,6 +371,35 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 [Docker에서 /var/lib 변경 (yookeun.github.io)](https://yookeun.github.io/docker/2018/10/29/docker-change/)
 [[Docker] Data Root Directory 경로 변경 (tistory.com)](https://carpfish.tistory.com/entry/Docker-Data-Root-Directory-%EA%B2%BD%EB%A1%9C-%EB%B3%80%EA%B2%BD)
 [Docker Volume 마운트 위치 변경 (tistory.com)](https://boying-blog.tistory.com/78?category=833988)
+---
+
+## 2.4 NextCloud
+
+### 2.4.1 NextCloud 선택 이유
+
+- TrueNas / FreeNas / 시놀로지 : OS 자체가 NAS를 위해 커스텀되어 있는 형태
+→ 일반적인 서버 이용 경험과는 다를 것으로 생각되어 배제함
+참고 : [TrueNAS 소개 - Bongtae's Lab](https://bongtae.net/truenas-%EC%86%8C%EA%B0%9C/)
+[FreeNAS 설치 및 운영하기 (tistory.com)](https://judo0179.tistory.com/23)
+- Seafile
+[서버포럼 - Docker로 오픈소스 NAS 툴 Seafile 구축하기. (svrforum.com)](https://svrforum.com/nas/109356)
+- 시놀로지
+
+참고 : [Tool :: 툴 - 자작 NAS OS 비교(NAS4Free, OpenMediaVault, Xpenology), 그리고 구축 포스팅 (rcy.co.kr)](http://www.rcy.co.kr/xeb/index.php?mid=tool&listStyle=list&document_srl=11614&m=0)
+[나스 고도화 생각하다 드는 NAS OS에 대한 질문입니다. :: 2cpu, 지름이 시작되는 곳!](https://www.2cpu.co.kr/QnA/784202)
+[서버포럼 - 업무용 자작 NAS OS 선택이 고민됩니다. (svrforum.com)](https://svrforum.com/nas/167668)
+
+---
+
+## 2.5 Emby
+
+### 2.5.1 PLEX를 선택하지 않은 이유
+
+---
+
+- 서버 설치 후 테스트 해보았으나 무료로 제공되는 서비스의 수준이 만족스럽지 않았음. (버퍼링, 화질)
+- 유료 서비스 이용 시 해결될 것으로 보였으나 미디어 서버 이용 빈도가 높지 않을 것으로 생각되어 PLEX와 유사한 서비스 탐색하여 Emby 발견
+- Emby 설치 후 버퍼링, 화질을 포함하여 전반적인 기능에 만족하여 현재까지 사용 중
 
 ---
 
@@ -365,12 +407,10 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 # 3.1 DuckDns 설정
 
----
-
 설치한 서비스들의 URL 접근 편의를 위해 무료 서브도메인 서비스 duckdns 이용
 
  1) 서브도메인 등록
-{이미지}
+![duckdns](https://github.com/HashCitrine/nas/blob/master/image/duckdns.png?raw=true)
 
 2) 유동 IP에 대응하여 서브도메인 유지를 위해 [duck.sh](http://duck.sh) 생성
 
