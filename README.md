@@ -344,33 +344,34 @@ Docker version 20.10.16, build aa7e414
 ![duckdns](https://github.com/HashCitrine/nas/blob/master/image/portainer_stack_4.png?raw=true)
 
 
-참고 : [Ubuntu 20.04 LTS ) Docker 설치하기 (tistory.com)](https://shanepark.tistory.com/237)
-[ubuntu docker 설치시 Package 'docker-ce' has no installation candidate 해결 (tistory.com)](https://boying-blog.tistory.com/82)
+
+
+---
 
 ### 2.3.1 Docker Volume 위치 변경
 
 1) Docker 종료
 
 > $ systemctl stop docker
-> 
 
 2) 변경할 경로 등록
 
 > $ vi /usr/lib/systemd/system/docker.service
 …
-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock **--data-root={Docker Volume DIR}**
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --data-root={Docker Volume DIR}
 …
-> 
 
 3) Docker 실행 후 지정한 경로 확인
 
 > $ systemctl start docker
-> 
 
-참고 : [[Docker] Docker Root 디렉토리 변경 (tistory.com)](https://fliedcat.tistory.com/113)
-[Docker에서 /var/lib 변경 (yookeun.github.io)](https://yookeun.github.io/docker/2018/10/29/docker-change/)
-[[Docker] Data Root Directory 경로 변경 (tistory.com)](https://carpfish.tistory.com/entry/Docker-Data-Root-Directory-%EA%B2%BD%EB%A1%9C-%EB%B3%80%EA%B2%BD)
-[Docker Volume 마운트 위치 변경 (tistory.com)](https://boying-blog.tistory.com/78?category=833988)
+
+
+참고 : [[Docker] Docker Root 디렉토리 변경 (tistory.com)](https://fliedcat.tistory.com/113)   
+[Docker에서 /var/lib 변경 (yookeun.github.io)](https://yookeun.github.io/docker/2018/10/29/docker-change/)   
+[[Docker] Data Root Directory 경로 변경 (tistory.com)](https://carpfish.tistory.com/entry/Docker-Data-Root-Directory-%EA%B2%BD%EB%A1%9C-%EB%B3%80%EA%B2%BD)   
+[Docker Volume 마운트 위치 변경 (tistory.com)](https://boying-blog.tistory.com/78?category=833988)   
+
 ---
 
 ## 2.4 NextCloud
@@ -379,15 +380,15 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 - TrueNas / FreeNas / 시놀로지 : OS 자체가 NAS를 위해 커스텀되어 있는 형태
 → 일반적인 서버 이용 경험과는 다를 것으로 생각되어 배제함
-참고 : [TrueNAS 소개 - Bongtae's Lab](https://bongtae.net/truenas-%EC%86%8C%EA%B0%9C/)
-[FreeNAS 설치 및 운영하기 (tistory.com)](https://judo0179.tistory.com/23)
-- Seafile
-[서버포럼 - Docker로 오픈소스 NAS 툴 Seafile 구축하기. (svrforum.com)](https://svrforum.com/nas/109356)
-- 시놀로지
+참고 : [TrueNAS 소개 - Bongtae's Lab](https://bongtae.net/truenas-%EC%86%8C%EA%B0%9C/)  
+[FreeNAS 설치 및 운영하기 (tistory.com)](https://judo0179.tistory.com/23)  
+- Seafile : 기능 및 성능면에서는 부족함이 없어보였으나 **파일을 조각내어 보관**하는 특성 때문에 차후 백업 시 문제가 생길 여지가 있을 것으로 생각되어 이용하지 않기로 함  
+([서버포럼 - Docker로 오픈소스 NAS 툴 Seafile 구축하기. (svrforum.com)](https://svrforum.com/nas/109356)   
+[Seafile 에 업로드 한 파일 찾기 - Seaf-fuse (tistory.com)](https://awesometic.tistory.com/69))
 
-참고 : [Tool :: 툴 - 자작 NAS OS 비교(NAS4Free, OpenMediaVault, Xpenology), 그리고 구축 포스팅 (rcy.co.kr)](http://www.rcy.co.kr/xeb/index.php?mid=tool&listStyle=list&document_srl=11614&m=0)
-[나스 고도화 생각하다 드는 NAS OS에 대한 질문입니다. :: 2cpu, 지름이 시작되는 곳!](https://www.2cpu.co.kr/QnA/784202)
-[서버포럼 - 업무용 자작 NAS OS 선택이 고민됩니다. (svrforum.com)](https://svrforum.com/nas/167668)
+참고 : [Tool :: 툴 - 자작 NAS OS 비교(NAS4Free, OpenMediaVault, Xpenology), 그리고 구축 포스팅 (rcy.co.kr)](http://www.rcy.co.kr/xeb/index.php?mid=tool&listStyle=list&document_srl=11614&m=0)  
+[나스 고도화 생각하다 드는 NAS OS에 대한 질문입니다. :: 2cpu, 지름이 시작되는 곳!](https://www.2cpu.co.kr/QnA/784202)  
+[서버포럼 - 업무용 자작 NAS OS 선택이 고민됩니다. (svrforum.com)](https://svrforum.com/nas/167668)  
 
 ---
 
@@ -427,8 +428,8 @@ $ chmod 700 duckdns/[duck.sh](http://duck.sh/)
 /5 * * * * ~/duckdns/duck.sh >/dev/null 2>&1
 > 
 
-참고 : [Duck DNS - install (www.duckdns.org)](https://www.duckdns.org/install.jsp?tab=linux-cron&domain=hasnas)
-[[Linux] Duck DNS로 IP 없이 접속하기! (tistory.com)](https://ruungji.tistory.com/entry/Linux-Duck-DNS%EB%A1%9C-IP-%EC%97%86%EC%9D%B4-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0)
+참고 : [Duck DNS - install (www.duckdns.org)](https://www.duckdns.org/install.jsp?tab=linux-cron&domain=hasnas)  
+[[Linux] Duck DNS로 IP 없이 접속하기! (tistory.com)](https://ruungji.tistory.com/entry/Linux-Duck-DNS%EB%A1%9C-IP-%EC%97%86%EC%9D%B4-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0)  
 
 ---
 
@@ -473,11 +474,10 @@ volumes:
 …
 > 
 
-참고 : [Docker 컨테이너에 데이터 저장 (볼륨/바인드 마운트) | Engineering Blog by Dale Seo](https://www.daleseo.com/docker-volumes-bind-mounts/)
-[코끼리를 냉장고에 넣는 방법 :: [Docker] 도커 컨테이너 사이에 디렉터리 및 파일 공유하기 (tistory.com)](https://dololak.tistory.com/403)
-
-[Docker에 vi가 안될때 (tistory.com)](https://cpdev.tistory.com/144)
-[[Docker] 컨테이너 bash에 vim 설치하기 — 논리적 코딩 (tistory.com)](https://logical-code.tistory.com/123)
+참고 : [Docker 컨테이너에 데이터 저장 (볼륨/바인드 마운트) | Engineering Blog by Dale Seo](https://www.daleseo.com/docker-volumes-bind-mounts/)  
+[코끼리를 냉장고에 넣는 방법 :: [Docker] 도커 컨테이너 사이에 디렉터리 및 파일 공유하기 (tistory.com)](https://dololak.tistory.com/403)  
+[Docker에 vi가 안될때 (tistory.com)](https://cpdev.tistory.com/144)  
+[[Docker] 컨테이너 bash에 vim 설치하기 — 논리적 코딩 (tistory.com)](https://logical-code.tistory.com/123)  
 
 ---
 
