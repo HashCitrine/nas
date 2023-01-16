@@ -249,22 +249,19 @@ UUID=**{UUID} /dev/sda** ext4 defaults 0 1
 1) Docker 패키지 설치 전 사전 작업
 
 > $ sudo apt-get update
-$ sudo apt-get install \
-ca-certificates \
-curl \
-gnupg \
-lsb-release
-> 
+> $ sudo apt-get install \
+>    ca-certificates \
+>    curl \
+>    gnupg \
+>    lsb-release
 
 2) Docker 패키지 설치
 
-> $ curl -fsSL [https://download.docker.com/linux/ubuntu/gpg](https://download.docker.com/linux/ubuntu/gpg) | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-> 
-> 
-> $ sudo add-apt-repository "deb [arch=amd64] [https://download.docker.com/linux/ubuntu](https://download.docker.com/linux/ubuntu) $(lsb_release -cs) stable"
+> $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+> $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 > $ apt-get update
-> $ sudo apt-get install docker-ce docker-ce-cli [containerd.io](http://containerd.io/)
-> 
+> $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 
 
 3) Docker 설치 확인
 
