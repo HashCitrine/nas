@@ -480,13 +480,13 @@ volumes:
 
 ## 3.2 서버 리소스 모니터링
 
-### 3.1.1 htop
+### 3.2.1 htop
 
 서버 리소스 모니터링
 
 - 참고 : [[Linux]사용자 위주의 모니터링 도구 htop :: EunChan's Tech Blog (tistory.com)](https://eunchankim-dev.tistory.com/52)
 
-### 3.1.2 iftop
+### 3.2.2 iftop
 
 네트워크 트래픽 모니터링
 
@@ -496,12 +496,16 @@ volumes:
 
 ## 3.3 시도해보았던 것
 
-### 3.1.1 Wake up Lan
+### 3.3.1 Wake up Lan
 
 - 필요할 때만 전원을 올려서 사용하도록 설정하기 위해 시도
 - 최초에는 메인보드 WOL 기능을 이용하여 사용 (Asrock 메인보드)
 (참고 : [PC WOL (Wake On Lan, 랜으로 부팅시키는것) 바이오스 설정법. (tistory.com)](https://igotit.tistory.com/entry/PC-WOL-Wake-On-Lan-%EB%9E%9C%EC%9C%BC%EB%A1%9C-%EB%B6%80%ED%8C%85%EC%8B%9C%ED%82%A4%EB%8A%94%EA%B2%83-%EB%B0%94%EC%9D%B4%EC%98%A4%EC%8A%A4-%EC%84%A4%EC%A0%95%EB%B2%95))
 - 전원이 꺼지고 일정 시간이 지난 후에는 WOL을 요청해도 전원이 켜지지 않는 경우가 발생
 - 메인보드의 전원 인가 시 자동 부팅 옵션(Restore AC Power Loss)과 스마트 플러그 조합을 이용하여 대체하여 사용 중
+
+### 3.3.2 immich
+- NAS 용도가 이미지 보관에 대부분의 비중을 차지한다는 것을 파악하고, 이미지 보관에 특화된 도구를 이용
+- 일반적인 파일 보관을 위한 NAS 기능은 서버 내 특정 경로를 NFS, ASP 등을 이용해 접근하는 것으로 대체(`공유 폴더`)
 
 ---
